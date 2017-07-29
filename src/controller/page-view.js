@@ -1,10 +1,4 @@
-module.exports.home = (req, res) => {
-  res.writeHead(200, {'Content-type':'text/plan'});
-  res.write('OK');
-  res.end();
-};
-
-module.exports.pageView = (req, res, model) => {
+module.exports = (req, res, model) => {
   let body = '';
 
   req.on('data', (data) => {

@@ -1,24 +1,7 @@
 const http = require('http');
 
 const db = require('./db');
-const createRouter = require('./router');
-const homeCtrl = require('./controller').home;
-const pageViewCtrl = require('./controller').pageView;
-
-const routes = [
-  {
-    path: '/',
-    methods: ['GET'],
-    controller: homeCtrl
-  },
-  {
-    path: '/page-view',
-    methods: ['POST'],
-    controller: pageViewCtrl
-  }
-];
-
-const router = createRouter(routes);
+const router = require('./config/routes');
 
 const createServer = (model) => {
   http.createServer((req, res) => {
