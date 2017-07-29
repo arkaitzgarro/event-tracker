@@ -1,23 +1,26 @@
+const path = require('path');
 const Sequelize = require('sequelize');
 const config = require('../config');
 
-// Import DB models
+const db = {};
+const sequelize = new Sequelize(config.db.uri);
 
-module.exports = () => {
-  const sequelize = new Sequelize(config.db.uri);
+const models = [
+  'model/page-view'
+];
 
-  sequelize
-    .authenticate()
-    .then(() => console.log('Connection with DB has been established successfully.'))
-    .catch((err) => console.error('Unable to connect to the database:', err));
+models.forEach((file) => {
+  const model = sequelize.import(path.join(__dirname, file));
+  db[model.name] = model;
+});
 
-  const pageView = require('./model/page-view')(sequelize);
+Object.keys(db).forEach((modelName) => {
+  if ('associate' in db[modelName]) {
+    db[modelName].associate(db);
+  }
+});
 
-  // Create DB tables
-  // {force: true} will drop the table if it already exists
-  return Promise.all([
-    pageView.sync({force: true})
-  ]).then(() => ({
-    pageView
-  }));
-};
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+module.exports = db;

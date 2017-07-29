@@ -1,15 +1,16 @@
-const Sequelize = require('sequelize');
-
-module.exports = (db) => {
-  return db.define("page_views", {
+module.exports = (sequelize, DataTypes) => {
+  return sequelize.define("PageView", {
      pageId: {
-       type: Sequelize.STRING,
+       type: DataTypes.STRING,
        allowNull: false,
        unique: 'compositeIndex'
      },
      data: {
-      type: Sequelize.JSON,
+      type: DataTypes.JSON,
       allowNull: true
      }
+  }, {
+    freezeTableName: true,
+    tableName: 'page_view'
   });
 };

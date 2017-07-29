@@ -1,10 +1,10 @@
 const port = parseInt(process.env.PORT, 10) || 80;
 
-const dbHost = process.env.PGHOST;
-const dbPort = parseInt(process.env.PGPORT, 10);
-const dbUser = process.env.PGUSER;
-const dbPass = process.env.PGPASSWORD;
-const dbName = process.env.PGDATABASE;
+const dbHost = process.env.DB_HOST;
+const dbPort = parseInt(process.env.DB_PORT, 10);
+const dbUser = process.env.DB_USER;
+const dbPass = process.env.DB_PASSWORD;
+const dbName = process.env.DB_NAME;
 
 module.exports = {
   port: port,

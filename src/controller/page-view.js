@@ -1,4 +1,6 @@
-module.exports = (req, res, model) => {
+const models = require('../db');
+
+module.exports = (req, res) => {
   let body = '';
 
   req.on('data', (data) => {
@@ -21,7 +23,7 @@ module.exports = (req, res, model) => {
       return res.end();
     }
 
-    model.pageView.create({
+    models.PageView.create({
       pageId: Date.now() + Math.random(),
       data
     }).then(() => {
