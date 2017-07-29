@@ -1,8 +1,8 @@
-const host = process.env.PGHOST;
-const port = process.env.PGPORT;
-const user = process.env.PGUSER;
-const pass = process.env.PGPASSWORD;
-const db = process.env.PGDATABASE;
+const host = process.env.PGHOST || 'localhost';
+const port = process.env.PGPORT || 5432;
+const user = process.env.PGUSER || 'postgres';
+const pass = process.env.PGPASSWORD || 'postgres';
+const db = process.env.PGDATABASE || 'events';
 
 module.exports = {
   db: {
