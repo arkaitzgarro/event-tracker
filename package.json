@@ -9,7 +9,7 @@
     "lint": "eslint src spec *.js",
     "start": "nodemon src/index.js",
     "start:prd": "pm2 start src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine --config=spec/support/jasmine.json"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
     "eslint": "4.3.0",
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-plugin-import": "^2.7.0",
+    "jasmine": "2.7.0",
+    "jasmine-spec-reporter": "4.1.1",
     "nodemon": "1.11.0"
   },
   "dependencies": {
