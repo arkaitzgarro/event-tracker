@@ -1,4 +1,4 @@
-const router = require('../router');
+const router = require('./index');
 
 const homeCtrl = require('../controller/home');
 const pageViewCtrl = require('../controller/page-view');

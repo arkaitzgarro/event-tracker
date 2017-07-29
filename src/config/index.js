@@ -1,11 +1,12 @@
-const host = process.env.PGHOST || 'localhost';
-const port = process.env.PGPORT || 5432;
-const user = process.env.PGUSER || 'postgres';
-const pass = process.env.PGPASSWORD || 'postgres';
-const db = process.env.PGDATABASE || 'events';
+const devConf = require('./dev.conf');
+const prdConf = require('./prd.conf');
 
-module.exports = {
-  db: {
-    uri: `postgres://${user}:${pass}@${host}:${port}/${db}`
-  }
+const env = process.env.NODE_ENV || 'DEV';
+
+const configs = {
+  DEV: devConf,
+  TST: {},
+  PRD: prdConf
 };
+
+module.exports = configs[env];
