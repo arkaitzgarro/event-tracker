@@ -1,7 +1,6 @@
 const http = require('http');
 
 const config = require('./config');
-const db = require('./db');
 const router = require('./router/routes');
 
 http.createServer((req, res) => {
@@ -11,7 +10,7 @@ http.createServer((req, res) => {
     return res.end();
   }
 
-  route.controller(req, res);
+  return route.controller(req, res);
 }).listen(config.port);
 
-console.log('Local server listening at: ' + config.hostName);
+console.log(`Local server listening at: ${config.hostName}`);

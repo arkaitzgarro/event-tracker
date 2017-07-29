@@ -23,13 +23,13 @@ module.exports = (req, res) => {
       return res.end();
     }
 
-    models.PageView.create({
+    return models.PageView.create({
       pageId: Date.now() + Math.random(),
-      data
+      data,
     }).then(() => {
       res.writeHead(204);
       res.end();
-    }).catch ((e) => {
+    }).catch((e) => {
       console.error(e);
       res.writeHead(500);
       res.end();

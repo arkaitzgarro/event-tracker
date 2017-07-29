@@ -6,7 +6,7 @@ const env = process.env.NODE_ENV || 'DEV';
 const configs = {
   DEV: devConf,
   TST: {},
-  PRD: prdConf
+  PRD: prdConf,
 };
 
 module.exports = configs[env];

@@ -7,7 +7,7 @@ const methods = {
   },
   get POST() {
     return 'POST';
-  }
+  },
 };
 
 function extractPath(req) {
@@ -16,7 +16,7 @@ function extractPath(req) {
 
 function match(req) {
   const path = extractPath(req);
-  const route = routes.find((route) => route.path === path);
+  const route = routes.find(r => r.path === path);
 
   if (!route) {
     return null;
@@ -33,7 +33,7 @@ function register(path, controller, method = methods.GET) {
   routes.push({
     path,
     controller,
-    method
+    method,
   });
 }
 
@@ -48,5 +48,5 @@ function post(path, controller) {
 module.exports = {
   get,
   match,
-  post
+  post,
 };

@@ -6,7 +6,7 @@ const db = {};
 const sequelize = new Sequelize(config.db.uri);
 
 const models = [
-  'model/page-view'
+  'model/page-view',
 ];
 
 models.forEach((file) => {
