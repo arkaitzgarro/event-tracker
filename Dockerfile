@@ -17,4 +17,4 @@ COPY ./ /usr/app/
 # Binds to port 8080
 EXPOSE  8080
 
-ENTRYPOINT ["./tools/wait-for-postgres.sh"]
+CMD ["npm", "run", "start:prd"]

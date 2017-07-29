@@ -4,8 +4,10 @@
   "description": "GA style event tracker based on Node.js",
   "main": "index.js",
   "scripts": {
+    "db:migrate": "sequelize db:migrate",
+    "db:rollback": "sequelize db:migrate:undo",
     "start": "nodemon src/index.js",
-    "start:prod": "pm2 start src/index.js",
+    "start:prd": "pm2 start src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +27,7 @@
     "pg": "7.0.2",
     "pg-hstore": "2.3.2",
     "pm2": "2.6.1",
-    "sequelize": "4.4.2"
+    "sequelize": "4.4.2",
+    "sequelize-cli": "2.7.0"
   }
 }

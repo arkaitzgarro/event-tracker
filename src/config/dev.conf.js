@@ -1,15 +1,11 @@
-const port = parseInt(process.env.PORT, 10) || 3000;
+const dbConfig = require('./db').development;
 
-const dbHost = process.env.DB_HOST || 'localhost';
-const dbPort = parseInt(process.env.PGPORT, 10) || 5432;
-const dbUser = process.env.DB_USER || 'postgres';
-const dbPass = process.env.DB_PASSWORD || 'postgres';
-const dbName = process.env.DB_NAME || 'events';
+const port = parseInt(process.env.PORT, 10) || 3000;
 
 module.exports = {
   port: port,
   hostName: `http://localhost:${port}`,
   db: {
-    uri: `postgres://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
+    uri: `${dbConfig.dialect}://${dbConfig.username}:${dbConfig.password}@${dbConfig.host}/${dbConfig.database}`
   }
 };
