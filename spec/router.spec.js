@@ -8,10 +8,10 @@ describe("Router module", () => {
     });
 
     it("should register a GET route", () => {
-      router.get('/', ctrl);
-      const route = router.match({ url: 'http://localhost/' });
+      router.get('/home', ctrl);
+      const route = router.match({ url: 'http://localhost/home' });
 
-      expect(route.path).toBe('/');
+      expect(route.path).toBe('/home');
       expect(route.method).toBe('GET');
       expect(route.controller).toBe(ctrl);
     });

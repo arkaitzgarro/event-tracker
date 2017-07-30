@@ -45,8 +45,13 @@ function post(path, controller) {
   register(path, controller, methods.POST);
 }
 
+function reset() {
+  routes.length = 0;
+}
+
 module.exports = {
   get,
   match,
   post,
+  reset,
 };
