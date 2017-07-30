@@ -9,7 +9,8 @@
     "lint": "eslint src spec *.js",
     "start": "nodemon src/index.js",
     "start:prd": "pm2 start src/index.js",
-    "test": "jasmine --config=spec/support/jasmine.json"
+    "test": "NODE_ENV=test jasmine --config=spec/support/jasmine.json",
+    "test:coverage": "nyc npm test"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
     "eslint-plugin-import": "^2.7.0",
     "jasmine": "2.7.0",
     "jasmine-spec-reporter": "4.1.1",
-    "nodemon": "1.11.0"
+    "nodemon": "1.11.0",
+    "nyc": "11.1.0"
   },
   "dependencies": {
     "pg": "7.0.2",
